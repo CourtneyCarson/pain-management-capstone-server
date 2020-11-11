@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const config = require('../config')
 
 const AuthService = {
-  getWithUserName(db, email) {
+  getUserWithUserName(db, email) {
     console.log('authService:', email)
     return db('users')
       .where('email', email)
