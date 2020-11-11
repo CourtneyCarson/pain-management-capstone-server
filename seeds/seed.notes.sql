@@ -6,11 +6,11 @@ TRUNCATE
   trigger_points;
   
 
-INSERT INTO users (id,user_name, full_name, password)
+INSERT INTO users (id,user_name, password)
 VALUES
-  (1,'emmie', 'em mie', 'password'),
-  (2,'yahoo', 'ya hoo', 'password'),
-  (3,'cashmew', 'cash mewtilator', 'password');
+  (1,'emmie', 'password'),
+  (2,'yahoo', 'password'),
+  (3,'cashmew', 'password');
 
 
 INSERT INTO trigger_points (id, title, user_id, image, content) -- add user id? 
@@ -26,7 +26,7 @@ VALUES
   (9,'Ruby Red Slippers',3, 'https://loremflickr.com/750/300/landscape?random=9',  'Get home quicker than either Uber or Lyft! Three taps of the heels is all it takes. One size fits all.'),
   (10, 'Magic Lamp',1, 'https://loremflickr.com/750/300/landscape?random=10', 'May or may not produce a genie.');
 
-INSERT INTO notes(content,  title, trigger_point_id) 
+INSERT INTO notes(content, title, trigger_point_id) 
 VALUES
   ('These are notes', 'title', 1);
   
