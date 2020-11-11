@@ -1,13 +1,21 @@
+//external resources
 require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
+
+
+//routers
+const authRouter = require('./auth/auth-router');
+const usersRouter = require('./users/users-router')
 const notesRouter = require('./notes/notes-router')
 
+// build app object 
 const app = express()
 
+//morgan settings
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
@@ -15,12 +23,14 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
+
+// routes
+app.use('/api/auth', authRouter)
+app.use('/api/users', usersRouter)
 app.use('/api/notes', notesRouter)
-// app.get('/notes', (req, res, next) => {
-//   res.send('All notes')
-// })
 
 
+// basic api endpoint
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
