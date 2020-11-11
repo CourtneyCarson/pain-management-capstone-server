@@ -64,15 +64,16 @@ usersRouter
                 res
                   .status(201)
                   .location(path.posix.join(req.originalUrl, `/${user.id}`))
+                  .send('words')
               })
           })
       })
-.catch(next)
+      .catch(next)
   })
 
 
 
-  // individual users by id
+// individual users by id
 usersRouter
   .route('/:user_id')
   .all((req, res, next) => {
@@ -80,14 +81,14 @@ usersRouter
     UsersService.getById(req.app.get('db'), user_id)
       .then(user => {
         if (!user) {
-          return res 
+          return res
             .status(404)
-          .send({error: {message: `User does not exist`}})
+            .send({ error: { message: `User does not exist` } })
         }
         res.user = user
         next()
       })
-    .catch(next)
+      .catch(next)
   })
   .get((req, res) => {
     res.json(UsersService.serializeUser(res.user))
@@ -99,8 +100,8 @@ usersRouter
       user_id
     )
       .then(numRowsAffected => {
-      res.status(204).end()
+        res.status(204).end()
       })
-    .catch(next)
+      .catch(next)
   })
-  module.exports = usersRouter
+module.exports = usersRouter
