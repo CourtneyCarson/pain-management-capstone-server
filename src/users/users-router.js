@@ -3,8 +3,6 @@ const path = require('path')
 
 //connect to service
 const UsersService = require('./users-service')
-const { hasUncaughtExceptionCaptureCallback } = require('process')
-const { hasUserWithUserName } = require('./users-service')
 
 const usersRouter = express.Router()
 const jsonBodyParser = express.json()
@@ -71,3 +69,38 @@ usersRouter
       })
 .catch(next)
   })
+
+
+
+  // individual users by id
+usersRouter
+  .route('/:user_id')
+  .all((req, res, next) => {
+    const { user_id } = req.params
+    UsersService.getById(req.app.get('db'), user_id)
+      .then(user => {
+        if (!user) {
+          return res 
+            .status(404)
+          .send({error: {message: `User does not exist`}})
+        }
+        res.user = user
+        next()
+      })
+    .catch(next)
+  })
+  .get((req, res) => {
+    res.json(UsersService.serializeUser(res.user))
+  })
+  .delete((req, res, next) => {
+    const { user_id } = req.params
+    UsersService.deleteUser(
+      req.app.get('db'),
+      user_id
+    )
+      .then(numRowsAffected => {
+      res.status(204).end()
+      })
+    .catch(next)
+  })
+  module.exports = usersRouter
