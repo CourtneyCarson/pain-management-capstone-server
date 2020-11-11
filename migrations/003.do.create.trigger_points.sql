@@ -1,4 +1,4 @@
-CREATE TABLE results (
+CREATE TABLE trigger_points (
   id SERIAL PRIMARY KEY,
   image TEXT,
   title TEXT NOT NULL,

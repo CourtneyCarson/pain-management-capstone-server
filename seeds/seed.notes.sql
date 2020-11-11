@@ -13,7 +13,7 @@ VALUES
   ('cashmew', 'cash mewtilator', 'password');
 
 
-INSERT INTO results (title, image, content) -- add user id? 
+INSERT INTO trigger_points (title, image, content) -- add user id? 
 VALUES
   ('Hand-Painted Rubber Ducky', 'https://loremflickr.com/750/300/landscape?random=1',  'This ducky has been hand-painted and is now art. Therefore it is useless and cannot be put in water.'),
   ('Cloning Machine', 'https://loremflickr.com/750/300/landscape?random=2',  '100% guaranteed to occasionally work every time! Requires a 167.23v power outlet or a dragonscale battery (obtained separately by solving a riddle).'),
