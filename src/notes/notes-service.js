@@ -23,12 +23,12 @@ const NotesService = {
     return db('notes')
       .where({ 'id': note_id })
       .delete()
-  }, 
+  },
   updateNote(db, note_id, newNote) {
     return db('notes')
       .where({ 'id': note_id })
       .update(newNote, returning = true)
-    .returning('*')
+      .returning('*')
   },
   serializeNote(note) {
     const { content, title, date_created } = note
