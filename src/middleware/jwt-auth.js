@@ -18,15 +18,15 @@ function requireAuth(req, res, next) {
       .then(user => {
         if (!user)
           return res.status(401).json({ error: 'Unauthorized request' })
-        
+
         req.user = user
         next()
       })
-      .catch(next)
-    // ^ this may need to be written in long form ... 
-  }
-  catch(error) {
-    res.status(401).json({error: 'Unauthorized request'})
+      .catch(err => {
+        next(err)
+      })
+  } catch (error) {
+    res.status(401).json({ error: 'Unauthorized request' })
   }
 }
 
