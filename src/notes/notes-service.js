@@ -1,3 +1,4 @@
+
 const NotesService = {
   getAllNotes(db) {
     console.log(db)
