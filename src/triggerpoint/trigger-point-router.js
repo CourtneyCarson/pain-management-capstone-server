@@ -1,11 +1,21 @@
 const express = require('express')
 const xss = require('xss')
 const path = require('path')
+const requireAuth = require('../middleware/jwt-auth')
 
 const TriggerPointService = require('./trigger-point-service')
 
 const triggerPointRouter = express.Router()
 const jsonParser = express.json()
+
+// get all tp for user
+triggerPointRouter
+  .route('/user/trigger-points')
+  .get(requireAuth, (req, res) => {
+  res.json('hello world')
+})
+
+
 
 /// routes by id
 triggerPointRouter
