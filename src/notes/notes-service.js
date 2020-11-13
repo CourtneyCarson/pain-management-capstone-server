@@ -31,8 +31,9 @@ const NotesService = {
       .returning('*')
   },
   serializeNote(note) {
-    const { content, title, date_created } = note
+    const {id, content, title, date_created } = note
     return {
+      id: id, 
       content: content,
       title: title,
       date_created: date_created
