@@ -1,5 +1,5 @@
 
-const TriggerPointService = {
+const TriggerPointUserService = {
   getAllTriggerPoints(db) {
     console.log(db)
     return db
@@ -20,7 +20,16 @@ const TriggerPointService = {
       .join('trigger_points', { "trigger_points.id": 'trigger_points_user.trigger_points_id' })
       .where({ 'user_id': user_id })
   },
+  insertTriggerPoints(db, newTp) {
+    return db
+      .insert(newTp)
+      .into('trigger_points_user')
+      .returning('*')
+      .then(rows => {
+        return rows[0]
+      })
+  },
 
 }
 
-module.exports = TriggerPointService
+module.exports = TriggerPointUserService

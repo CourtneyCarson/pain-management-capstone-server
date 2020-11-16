@@ -3,18 +3,17 @@ const xss = require('xss')
 const path = require('path')
 const requireAuth = require('../middleware/jwt-auth')
 
-const TriggerPointService = require('./trigger-point-service')
+const TriggerPointUserService = require('./trigger-point-user-service')
 
-const triggerPointRouter = express.Router()
+const triggerPointUserRouter = express.Router()
 const jsonParser = express.json()
 
-// get all tp for user
-triggerPointRouter
-  .route('/user/trigger-points')
-  .get(requireAuth, (req, res) => {
+triggerPointUserRouter
+  .route('/')
+  .get(requireAuth, (req, res, next) => {
     console.log(req.user)
     console.log(req.user.id)
-    TriggerPointService.getTriggerPointsByUser(
+    TriggerPointUserService.getAllTriggerPoints(
       req.app.get('db'),
       req.user.id
     )
@@ -27,12 +26,30 @@ triggerPointRouter
         }
         res.json(user_tp)
       })
+      .catch(next)
   })
- 
+  
+  .post(requireAuth, jsonParser, (req, res, next) => {
+    console.log(req.body)
+    const { trigger_points_id, user_id } = req.body
+    const newTp = { trigger_points_id, user_id }
+
+    TriggerPointUserService.insertTriggerPoints(
+      req.app.get('db'),
+      newTp
+    )
+      .then(tp => {
+        res
+          //display the 201 status code
+          .status(201)
+          .json(tp)
+      })
+      .catch(next)
+  })
 
 
 /// routes by id
-triggerPointRouter
+triggerPointUserRouter
   .route('/:tp_id')
   .all((req, res, next) => {
     if (isNaN(parseInt(req.params.tp_id))) {
@@ -40,7 +57,7 @@ triggerPointRouter
         error: { message: `Invalid id ${req.params.tp_id}` }
       })
     }
-    TriggerPointService.getTriggerPointsById(
+    TriggerPointUserService.getTriggerPointsById(
       req.app.get('db'),
       req.params.tp_id
     )
@@ -64,4 +81,4 @@ triggerPointRouter
 
 
 
-module.exports = triggerPointRouter
+module.exports = triggerPointUserRouter
