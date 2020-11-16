@@ -28,11 +28,11 @@ triggerPointUserRouter
       })
       .catch(next)
   })
-  
+
   .post(requireAuth, jsonParser, (req, res, next) => {
     console.log(req.body)
-    const { trigger_points_id, user_id } = req.body
-    const newTp = { trigger_points_id, user_id }
+    const { trigger_points_id } = req.body
+    const newTp = { user_id: req.user.id, trigger_points_id }
 
     TriggerPointUserService.insertTriggerPoints(
       req.app.get('db'),
