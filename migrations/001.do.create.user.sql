@@ -6,5 +6,3 @@ CREATE TABLE users (
 
 
 
- -- date_created TIMESTAMPTZ DEFAULT now() NOT NULL,
-  -- date_modified TIMESTAMPTZ
