@@ -2,8 +2,10 @@ const express = require('express')
 const xss = require('xss')
 const path = require('path')
 
+
 // service 
 const NotesService = require('./notes-service')
+const requireAuth = require('../middleware/jwt-auth')
 
 //router/jsonParser
 const notesRouter = express.Router()
@@ -12,8 +14,11 @@ const jsonParser = express.json()
 //routes
 notesRouter
   .route('/')
-  .get((req, res, next) => {
-    NotesService.getAllNotes(req.app.get('db'))
+  .get(requireAuth, (req, res, next) => {
+    NotesService.getAllNotes(
+      req.app.get('db'),
+      req.user.id
+    )
       .then(notes => {
         console.log(notes)
         res.json(notes.map(NotesService.serializeNote))
@@ -22,9 +27,10 @@ notesRouter
   })
 
   //post new note
-  .post(jsonParser, (req, res, next) => {
-    const { title, content, date_created } = req.body
-    const newNote = { title, content, date_created }
+  .post(requireAuth, jsonParser, (req, res, next) => {
+    console.log(req.body)
+    const { title, content, trigger_point_id } = req.body
+    const newNote = { title, content, trigger_point_id }
 
     //validate fields 
     for (const [key, value] of Object.entries(newNote))

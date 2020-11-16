@@ -30,9 +30,9 @@ VALUES
   (9,'Levator Scapulae', 'https://live.staticflickr.com/65535/50607179306_53fb46e9f7_w.jpg',  'Levator Scapulae Trigger Point Information'),
   (10,'Sub Occipitals', 'https://live.staticflickr.com/65535/50607295132_baa7e594a2_w.jpg', 'Sub Occipital Trigger Point Information');
 
--- INSERT INTO notes(content, title, trigger_point_id) 
--- VALUES
---   ('These are notes', 'title',1 );
+INSERT INTO notes(content, title, trigger_point_id) 
+VALUES
+  ('These are notes', 'title', 1 );
   
 
 INSERT INTO trigger_points_user (id, user_id, trigger_points_id)

@@ -25,16 +25,10 @@ const NotesService = {
       .where({ 'id': note_id })
       .delete()
   },
-  updateNote(db, note_id, newNote) {
-    return db('notes')
-      .where({ 'id': note_id })
-      .update(newNote, returning = true)
-      .returning('*')
-  },
   serializeNote(note) {
-    const {id, content, title, date_created } = note
+    const { id, content, title, date_created } = note
     return {
-      id: id, 
+      id: id,
       content: content,
       title: title,
       date_created: date_created
@@ -43,3 +37,13 @@ const NotesService = {
 }
 
 module.exports = NotesService;
+
+
+
+
+  // updateNote(db, note_id, newNote) {
+  //   return db('notes')
+  //     .where({ 'id': note_id })
+  //     .update(newNote, returning = true)
+  //     .returning('*')
+  // },
