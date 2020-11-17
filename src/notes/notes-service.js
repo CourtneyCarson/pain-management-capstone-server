@@ -4,6 +4,14 @@ const NotesService = {
     console.log(db)
     return db.select('*').from('notes')
   },
+  getAllNotesByTpId(db, tp_id) {
+    console.log(db)
+    return db
+      .select('*')
+      .from('notes')
+      .where({ 'trigger_point_id': tp_id })
+      // .first()
+  },
   getNoteById(db, note_id) {
     return db
       .from('notes')
@@ -26,12 +34,13 @@ const NotesService = {
       .delete()
   },
   serializeNote(note) {
-    const { id, content, title, date_created } = note
+    const { id, content, title, date_created, trigger_point_id } = note
     return {
       id: id,
       content: content,
       title: title,
-      date_created: date_created
+      date_created: date_created,
+      trigger_point_id: trigger_point_id
     }
   }
 }

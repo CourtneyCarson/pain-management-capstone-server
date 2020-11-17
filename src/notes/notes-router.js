@@ -25,6 +25,25 @@ notesRouter
       })
       .catch(next)
   })
+/// get notes for tp id
+notesRouter
+  .route('/:tp_id')
+  .get(requireAuth, (req, res, next) => {
+    NotesService.getAllNotesByTpId(
+      req.app.get('db'),
+      req.params.tp_id
+    )
+      .then(notes => {
+        console.log(notes)
+        if (!notes) {
+          return res.status(404).json({
+            error: {message: `note does not exist`}
+          })
+        }
+        res.json(notes.map(NotesService.serializeNote))
+      })
+      .catch(next)
+  })
 
   //post new note
   .post(requireAuth, jsonParser, (req, res, next) => {
