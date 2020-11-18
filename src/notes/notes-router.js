@@ -72,8 +72,21 @@ notesRouter
       })
       .catch(err => {
         next(err)
-      })
-
+      }) 
   })
+
+      /// delete note 
+      .delete((req, res, next) => {
+        NotesService.deleteNote(
+                req.app.get('db'),
+                req.params.note_id
+            )
+            .then(numRowsAffected => {
+
+                //check how many rows are effected to figure out if the delete was successful
+                res.status(204).json(numRowsAffected).end()
+            })
+            .catch(next)
+    })
 
 module.exports = notesRouter

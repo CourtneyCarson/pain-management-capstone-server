@@ -19,9 +19,9 @@ VALUES
 
 INSERT INTO trigger_points (id, title,  image, content) -- add user id? 
 VALUES
-  (1,'Hand-Painted Rubber Ducky',  'https://loremflickr.com/750/300/landscape?random=1',  'This ducky has been hand-painted and is now art. Therefore it is useless and cannot be put in water.'),
-  (2,'Cloning Machine', 'https://loremflickr.com/750/300/landscape?random=2',  '100% guaranteed to occasionally work every time! Requires a 167.23v power outlet or a dragonscale battery (obtained separately by solving a riddle).'),
-  (3,'Kangaroo Carrier', 'https://loremflickr.com/750/300/landscape?random=3',  'This convenient item can assist you in bringing your kangaroo to your favorite grocery store, or as a conversation starter at a first date or funeral.'),
+  (1,'Sub Occipitals', 'https://live.staticflickr.com/65535/50607295132_baa7e594a2_w.jpg', 'Suboccipital trigger points cause pain that feels like it’s inside the head, extending from the back of the head to the eye and forehead (figure 4.33). It feels like the whole side of the head hurts. This sensation is typical of what you experience with a migraine headache (Simons, Travell, and Simons 1999). The upper three suboccipitals on each side control nodding and tilting and, if afflicted with trigger points, can limit these movements and cause a stiff neck.'),
+  (2,'Masseter', 'https://live.staticflickr.com/65535/50609334733_f84e48a3dd_w.jpg',  'The masseter (MASS-uh-ter) muscles are the power muscles of the jaw, exerting the major force in biting and chewing. In the mirror, you can see your masseters contract right in front of your earlobes when you grit your teeth.'),
+  (3,'Trapezius', 'https://live.staticflickr.com/65535/50609334693_93d568560b_w.jpg',  'trigger point occurs next to the inner border of the shoulder blade in the broad middle part of the trapezius. It causes a burning kind of pain nearby, alongside the spine..'),
   (4,'Love Potion #26', 'https://loremflickr.com/750/300/landscape?random=4', 'While not as well known as its predecessor, Love Potion #9, this formulation has been proven to be effective in winning the affections of some small amphibians.'),
   (5,'My Freeze Ray', 'https://loremflickr.com/750/300/landscape?random=5',  'With this freeze ray, you can stop the world.'),
   (6,'Iliocostalis', 'https://live.staticflickr.com/65535/50607161446_e2d9f7e29e_w.jpg',  'Iliocostalis Trigger Point Information'),
