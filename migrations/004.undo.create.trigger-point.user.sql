@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS trigger_point_user
+DROP TABLE IF EXISTS trigger_points_user;
