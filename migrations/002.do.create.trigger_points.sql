@@ -5,3 +5,5 @@ CREATE TABLE trigger_points (
   content TEXT,
   date_created TIMESTAMPTZ DEFAULT now() NOT NULL
 );
+
+-- has to remain as serial or unable to save to account. 
