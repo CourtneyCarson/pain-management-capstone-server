@@ -19,16 +19,12 @@ VALUES
 
 INSERT INTO trigger_points (id, title,  image, content) -- add user id? 
 VALUES
-  (1,'Sub Occipitals', 'https://live.staticflickr.com/65535/50607295132_069ed53912_w.jpg', 'Suboccipital trigger points cause pain that feels like it’s inside the head, extending from the back of the head to the eye and forehead (figure 4.33). It feels like the whole side of the head hurts. This sensation is typical of what you experience with a migraine headache (Simons, Travell, and Simons 1999). The upper three suboccipitals on each side control nodding and tilting and, if afflicted with trigger points, can limit these movements and cause a stiff neck.'),
-  (2,'Masseter', 'https://live.staticflickr.com/65535/50609334733_f84e48a3dd_w.jpg',  'The masseter (MASS-uh-ter) muscles are the power muscles of the jaw, exerting the major force in biting and chewing. In the mirror, you can see your masseters contract right in front of your earlobes when you grit your teeth.'),
-  (3,'Levator Scapulae', 'https://live.staticflickr.com/65535/50618496292_6a3291163a_w.jpg',  'trigger point occurs next to the inner border of the shoulder blade in the broad middle part of the trapezius. It causes a burning kind of pain nearby, alongside the spine..'),
-  (4,'Trapezius', 'https://live.staticflickr.com/65535/50609334693_18586bc1d3_w.jpg',  'trigger point occurs next to the inner border of the shoulder blade in the broad middle part of the trapezius. It causes a burning kind of pain nearby, alongside the spine..'),
-  (5,'Iliocostalis', 'https://live.staticflickr.com/65535/50617729193_978e9c037f_w.jpg',  'Iliocostalis Trigger Point Information'),
-  (6,'Gluteus Medius', 'https://live.staticflickr.com/65535/50609334848_d39aa30c4e_w.jpg',  'Iliocostalis Trigger Point Information'),
-  (7,'Foolproof Instant Wealth Pamphlet', 'https://loremflickr.com/750/300/landscape?random=7', 'Purchase this pamphlet for $100. Sell this pamphlet to a billion people for $100. Acquisition of this pamphlet is indeed proof of foolishness!'),
-  (8,'Story Water Spigot', 'https://loremflickr.com/750/300/landscape?random=8',  'Once installed by a qualified leprechaun, this spigot will produce a steady stream of stories which can be later be adapted to motion pictures which will not be quite as good as the originals.'),
-  (9,'Levator Scapulae', 'https://live.staticflickr.com/65535/50607179306_53fb46e9f7_w.jpg',  'Levator Scapulae Trigger Point Information'),
-  (10,'Sub Occipitals', 'https://live.staticflickr.com/65535/50607295132_baa7e594a2_w.jpg', 'Sub Occipital Trigger Point Information');
+  (1,'Sub Occipitals', 'https://live.staticflickr.com/65535/50607295132_069ed53912_w.jpg', ' Sub Occipital Trigger Points cause pain that feels like it’s inside the head, extending from the back of the head to the forehead and eye. It feels like the whole side of the head hurts. This is a sensation typical of a migraine headache. It can cause nodding and tilting of the head to be limited. To find the Sub Occipitals find the bottom of the back of the skull, tilt your head slightly and work gently. You must exercise caution while working on muscles near the base of the skull, do not use a tool and use light touch. '),
+  (2,'Masseter', 'https://live.staticflickr.com/65535/50609334733_f84e48a3dd_w.jpg',  'Trigger Points in the Masseter cause pain the front of the face, under eyes, over eyebrows, in both upper and lower teeth, and can even restrict opening of the jaw.  To find the Masster, place your thumb in your mouth and place your fingers on your cheek, clench your teeth and you will feel the Masseter contract. You can either pinch in this manner to massage this trigger point, or you can press into the same area on the outside of you check with supported fingertips. '),
+  (3,'Levator Scapulae', 'https://live.staticflickr.com/65535/50618496292_6a3291163a_w.jpg',  'Trigger Points in Levator Scapulae muscles cause stiffness and pain in the upper back. It can keep you from turning your head to look behind you, especially when turning your head to the same side. To find Levator Scapulae, place the heel of your hand on your opposite collarbone allowing the fingers to lie across the shoulder. Don’t let this hand move while you swing your free arm forward and back. You will feel the angle of the shoulder blade move under your fingertips.'),
+  (4,'Trapezius', 'https://live.staticflickr.com/65535/50609334693_18586bc1d3_w.jpg',  'Trapezius Trigger Point causes burning pain along the spine. It is found along the border of the shoulder blade in the middle area of the Trapezius.To make the trapezius easier to find, put your hand into your pocket and tilt your head to the same side as you will be working on. Then reach across with your opposite hand while resting your elbow on a table to support it. '),
+  (5,'Iliocostalis', 'https://live.staticflickr.com/65535/50617729193_978e9c037f_w.jpg',  'Trigger Points in the Iliocostalis cause tightening of the superficial spinal muscles, with a referral pattern commonly felt in the lower back and hip. The pain felt is more of a diffused pain. To best work the Iliocostalis trigger points use a tennis ball, place the ball over your shoulder on your upper back, while leaning against the ball, step your feet away and roll the ball up and down, be sure you aren’t rolling over your spine with the ball but just to the side of it.  You can use the same technique to reach the lower muscles by starting with the ball just below your lowest ribs. '),
+  (6,'Gluteus Medius', 'https://live.staticflickr.com/65535/50609334848_d39aa30c4e_w.jpg',  'Trigger Points in the Gluteus Medius are felt in the lower back just above and below the belt line often extending into the buttocks and hips. Back pain caused by this trigger point can be excruciating.  To find the Gluteus Medius trigger point place your hand at the top of you hip bone while shifting your weight onto one foot and feel for the contraction just below the top of your hip bone. '),
 
 INSERT INTO notes(content, title, trigger_point_id) 
 VALUES
@@ -37,8 +33,8 @@ VALUES
 
 INSERT INTO trigger_points_user (id, user_id, trigger_points_id)
 VALUES
-(1,3,10),
-(2,3,9),
+(1,3,1),
+(2,3,3),
 (3,3,6);
 
 
