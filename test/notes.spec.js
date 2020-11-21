@@ -26,7 +26,7 @@ describe(`GET /api/notes/:tp_id`, () => {
     before('make knex instance', () => {
       db = knex({
         client: 'pg',
-        connection: process.env.TEST_DB_URL,
+        connection: process.env.TEST_DATABASE_URL ,
       });
       app.set('db', db);
     });
@@ -87,8 +87,6 @@ describe(`GET /api/notes/:tp_id`, () => {
 
 
 
-
-
 // describe('Notes Endpoint', function () {
 //   let db;
 //   let testNote = [
@@ -104,7 +102,7 @@ describe(`GET /api/notes/:tp_id`, () => {
 //   before('make knex instance', () => {
 //     db = knex({
 //       client: 'pg',
-//       connection: process.env.TEST_DB_URL,
+//       connection: process.env.TEST_DATABASE_URL ,
 //     });
 //     app.set('db', db)
 //   })
@@ -159,7 +157,7 @@ describe(`GET /api/notes/:tp_id`, () => {
 //   before('make knex instance', () => {
 //     db = knex({
 //       client: 'pg',
-//       connection: process.env.TEST_DB_URL,
+//       connection: process.env.TEST_DATABASE_URL ,
 //     })
 //     app.set('db', db)
 //   });
