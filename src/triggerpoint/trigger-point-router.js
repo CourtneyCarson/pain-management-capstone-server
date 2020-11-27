@@ -12,14 +12,11 @@ const jsonParser = express.json();
 triggerPointRouter
   .route('/user/trigger-points')
   .get(requireAuth, (req, res) => {
-    console.log(req.user);
-    console.log(req.user.id);
     TriggerPointService.getTriggerPointsByUser(
       req.app.get('db'),
       req.user.id
     )
       .then(user_tp => {
-        console.log(user_tp);
         if (!user_tp) {
           return res.status(404).json({
             error: { message: `Users Trigger Points do not exist` }
@@ -50,7 +47,6 @@ triggerPointRouter
             error: { message: `Trigger Point does not exist` }
           });
         }
-        console.log(tp);
         res.triggerpoint = tp;
         next();
       })

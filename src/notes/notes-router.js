@@ -20,7 +20,6 @@ notesRouter
       req.user.id
     )
       .then(notes => {
-        console.log(notes);
         res.json(notes.map(NotesService.serializeNote));
       })
       .catch(next);
@@ -34,7 +33,6 @@ notesRouter
       req.params.tp_id
     )
       .then(notes => {
-        console.log(notes);
         if (!notes) {
           return res.status(404).json({
             error: { message: `note does not exist` }
@@ -47,7 +45,6 @@ notesRouter
 
   //post new note
   .post(requireAuth, jsonParser, (req, res, next) => {
-    console.log(req.body);
     const { title, content, trigger_point_id } = req.body;
     const newNote = { title, content, trigger_point_id };
 

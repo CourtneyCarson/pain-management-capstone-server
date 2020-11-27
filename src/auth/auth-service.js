@@ -4,7 +4,6 @@ const config = require('../config');
 
 const AuthService = {
   getUserWithUserName(db, email) {
-    console.log('authService:', email);
     return db('users')
       .where('email', email)
       .first();

@@ -13,7 +13,6 @@ usersRouter
   .get((req, res, next) => {
     UsersService.getAllUsers(req.app.get('db'))
       .then(user => {
-        console.log('User:', user);
         res.json(user);
       })
       .catch(next);
@@ -23,7 +22,6 @@ usersRouter
   .post(jsonBodyParser, (req, res, next) => {
     const { email, password } = req.body;
 
-    console.log('email:'.email, 'password:', password);
 
     for (const field of ['email', 'password'])
       if (!req.body[field])
@@ -32,7 +30,6 @@ usersRouter
         });
     const passwordError = UsersService.validatePassword(password);
 
-    console.log('password error:', passwordError);
 
     if (passwordError)
       return res.status(400).json({ error: passwordError });
@@ -43,14 +40,12 @@ usersRouter
     )
       .then(hasUserWithUserName => {
 
-        console.log('hasUserWithUserName:', hasUserWithUserName);
 
         if (hasUserWithUserName)
           return res.status(400).json({ error: `Username already taken` });
 
         return UsersService.hashPassword(password)
           .then(hashedPassword => {
-            console.log('hashedPassword:', hashedPassword);
             const newUser = {
               email,
               password: hashedPassword,
@@ -60,7 +55,6 @@ usersRouter
               newUser
             )
               .then(user => {
-                console.log('user:', user);
                 res
                   .status(201)
                   .location(path.posix.join(req.originalUrl, `/${user.id}`))

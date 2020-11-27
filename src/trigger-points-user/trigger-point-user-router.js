@@ -11,14 +11,11 @@ const jsonParser = express.json();
 triggerPointUserRouter
   .route('/')
   .get(requireAuth, (req, res, next) => {
-    console.log(req.user);
-    console.log(req.user.id);
     TriggerPointUserService.getAllTriggerPoints(
       req.app.get('db'),
       req.user.id
     )
       .then(user_tp => {
-        console.log(user_tp);
         if (!user_tp) {
           return res.status(404).json({
             error: { message: `Users Trigger Points do not exist` }
@@ -30,7 +27,6 @@ triggerPointUserRouter
   })
 
   .post(requireAuth, jsonParser, (req, res, next) => {
-    console.log(req.body);
     const { trigger_points_id } = req.body;
     const newTp = { user_id: req.user.id, trigger_points_id };
 
@@ -39,7 +35,6 @@ triggerPointUserRouter
       req.user.id
     )
       .then(showTriggerPointByUserId => {
-        // console.log('show tp by id', showTriggerPointByUserId);
         // define variable to store duplicates 
         let foundDuplicate = 0;
         // loop through array of objects from the response
@@ -95,7 +90,6 @@ triggerPointUserRouter
             error: { message: `Trigger Point does not exist` }
           });
         }
-        console.log(tp);
         res.triggerpoint = tp;
         next();
       })

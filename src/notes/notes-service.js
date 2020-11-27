@@ -1,16 +1,13 @@
 
 const NotesService = {
   getAllNotes(db) {
-    console.log(db);
     return db.select('*').from('notes');
   },
   getAllNotesByTpId(db, tp_id) {
-    console.log(db);
     return db
       .select('*')
       .from('notes')
       .where({ 'trigger_point_id': tp_id });
-    // .first()
   },
   getNoteById(db, note_id) {
     return db
@@ -50,9 +47,3 @@ module.exports = NotesService;
 
 
 
-  // updateNote(db, note_id, newNote) {
-  //   return db('notes')
-  //     .where({ 'id': note_id })
-  //     .update(newNote, returning = true)
-  //     .returning('*')
-  // },

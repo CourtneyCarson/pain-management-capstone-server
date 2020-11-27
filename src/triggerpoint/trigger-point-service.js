@@ -1,7 +1,6 @@
 
 const TriggerPointService = {
   getAllTriggerPoints(db) {
-    console.log(db);
     return db
       .select('*')
       .from('trigger_points');
