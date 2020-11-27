@@ -134,6 +134,30 @@ Past Treatments Page
     * content (note text)
     * date-created (auto generated)
 
+## 8. API Documentation 
+/api
+├── /auth    
+│   └── POST
+│       ├── /login
+├── /users
+│   └── GET /
+│   └── GET /:id
+├── /notes
+│   └── GET
+│       ├── /
+│       ├── /:tp_id
+│   └── POST
+│       ├── /:tp_id
+├── /tp
+│   └── GET
+│       ├── /user/trigger-points
+│       ├── /:tp_id 
+├── /tpusers
+│   └── GET
+│       ├── /
+│       ├── /:tp_id
+│   └── POST
+│       ├── /
 
 
 ## Screenshots 
