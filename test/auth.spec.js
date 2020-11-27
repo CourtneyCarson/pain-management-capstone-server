@@ -11,15 +11,15 @@ describe('Auth Endpoints', function () {
       email: 'email@email.com',
       password: 'Password1',
     }
-  ]
+  ];
 
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DATABASE_URL,
     });
-    app.set('db', db)
-  })
+    app.set('db', db);
+  });
 
   before('clean the tables before', () => db.raw('TRUNCATE TABLE users, notes, trigger_points, trigger_points_user RESTART IDENTITY CASCADE'));
   afterEach('cleanup', () => db.raw('TRUNCATE TABLE users, notes, trigger_points, trigger_points_user RESTART IDENTITY CASCADE;'));
@@ -29,8 +29,8 @@ describe('Auth Endpoints', function () {
     before(() => {
       return db
         .into('users')
-        .insert(testUser)
-    })
+        .insert(testUser);
+    });
     it(`get user`, () => {
       return AuthService.getUserWithUserName(db, 'email@email.com')
         .then(actual => {
@@ -38,8 +38,8 @@ describe('Auth Endpoints', function () {
             id: 1,
             email: 'email@email.com',
             password: 'Password1'
-          })
-        })
-    })
-  })
-})
+          });
+        });
+    });
+  });
+});

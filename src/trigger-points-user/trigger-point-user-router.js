@@ -50,7 +50,7 @@ triggerPointUserRouter
             foundDuplicate = 1;
           }
         }
-      
+
 
         if (foundDuplicate == 0) {
           // check if user already has trigger point id saved 
@@ -67,9 +67,9 @@ triggerPointUserRouter
             .catch(next);
         } else {
           res
-          //display the 400 status code
-          .status(400)
-            .json({ error: "Duplicated entry" })
+            //display the 400 status code
+            .status(400)
+            .json({ error: "Duplicated entry" });
         }
       })
       .catch(next);

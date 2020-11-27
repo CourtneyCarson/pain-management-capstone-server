@@ -14,15 +14,15 @@ describe('TP Endpoint', function () {
       title: 'title',
       content: 'content',
     }
-  ]
+  ];
 
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DATABASE_URL,
     });
-    app.set('db', db)
-  })
+    app.set('db', db);
+  });
 
   before('clean the tables before', () => db.raw('TRUNCATE TABLE trigger_points RESTART IDENTITY CASCADE'));
   afterEach('cleanup', () => db.raw('TRUNCATE TABLE trigger_points RESTART IDENTITY CASCADE;'));
@@ -32,8 +32,8 @@ describe('TP Endpoint', function () {
     before(() => {
       return db
         .into('trigger_points')
-        .insert(testTp)
-    })
+        .insert(testTp);
+    });
     it(`gets trigger_points`, () => {
       return TriggerPointService.getAllTriggerPoints(db, 'title')
         .then(actual => {
@@ -44,8 +44,8 @@ describe('TP Endpoint', function () {
               title: 'title',
               content: 'content',
             }
-          )
-        })
-    })
-  })
-})
+          );
+        });
+    });
+  });
+});
