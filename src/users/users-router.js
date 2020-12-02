@@ -57,8 +57,7 @@ usersRouter
               .then(user => {
                 res
                   .status(201)
-                  .location(path.posix.join(req.originalUrl, `/${user.id}`))
-                  .send('words');
+                  .json(UsersService.serializeUser(user))
               });
           });
       })

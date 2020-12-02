@@ -27,7 +27,9 @@ app.use(helmet());
 app.use(cors());
 
 // routes
+//log in route
 app.use('/api/auth', authRouter);
+//sign up route
 app.use('/api/users', usersRouter);
 app.use('/api/notes', notesRouter);
 app.use('/api/tp', triggerPointRouter);
