@@ -3,6 +3,14 @@ const NotesService = {
   getAllNotes(db) {
     return db.select('*').from('notes');
   },
+  getNotesByUser(db, user_id) {
+    return db
+      .from('notes')
+      .select('*')
+      .where({ 'author_id': user_id });
+  },
+
+
   getAllNotesByTpId(db, tp_id) {
     return db
       .select('*')

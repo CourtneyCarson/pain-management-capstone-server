@@ -15,9 +15,10 @@ const jsonParser = express.json();
 notesRouter
   .route('/')
   .get(requireAuth, (req, res, next) => {
-    NotesService.getAllNotes(
+    NotesService.getNotesByUser(
       req.app.get('db'),
       req.user.id
+      //get user.id from jwt-auth 
     )
       .then(notes => {
         res.json(notes.map(NotesService.serializeNote));
@@ -45,9 +46,10 @@ notesRouter
 
   //post new note
   .post(requireAuth, jsonParser, (req, res, next) => {
+    const author_id = req.user.id;
     const { title, content, trigger_point_id } = req.body;
-    const newNote = { title, content, trigger_point_id };
-
+    const newNote = { title, content, trigger_point_id, author_id };
+    // add req.user id to new note
     //validate fields 
     for (const [key, value] of Object.entries(newNote))
       if (value == null)

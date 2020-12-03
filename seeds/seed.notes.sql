@@ -27,9 +27,13 @@ VALUES
   (5,'Iliocostalis', 'https://live.staticflickr.com/65535/50617729193_978e9c037f_w.jpg',  'Trigger Points in the Iliocostalis cause tightening of the superficial spinal muscles, with a referral pattern commonly felt in the lower back and hip. The pain felt is more of a diffused pain. To best work the Iliocostalis trigger points use a tennis ball, place the ball over your shoulder on your upper back, while leaning against the ball, step your feet away and roll the ball up and down, be sure you aren’t rolling over your spine with the ball but just to the side of it.  You can use the same technique to reach the lower muscles by starting with the ball just below your lowest ribs. '),
   (6,'Gluteus Medius', 'https://live.staticflickr.com/65535/50609334848_d39aa30c4e_w.jpg',  'Trigger Points in the Gluteus Medius are felt in the lower back just above and below the belt line often extending into the buttocks and hips. Back pain caused by this trigger point can be excruciating.  To find the Gluteus Medius trigger point place your hand at the top of you hip bone while shifting your weight onto one foot and feel for the contraction just below the top of your hip bone. ');
 
-INSERT INTO notes(content, title, trigger_point_id) 
+INSERT INTO notes(content, title, trigger_point_id, author_id) 
 VALUES
-  ('These are notes', 'Title', 1 );
+  ('notes from user 1', 'Title', 1, 1 ),
+  ('These are notes from user 3', 'Title', 1, 3 ),
+  ('These are notes user 2', 'Title', 1, 2 ),
+  ('These are notes user 4', 'Title', 1, 4 );
+  -- add user id to seeded notes 
   
 
 INSERT INTO trigger_points_user (id, user_id, trigger_points_id)
