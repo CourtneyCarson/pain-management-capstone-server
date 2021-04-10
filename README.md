@@ -107,7 +107,6 @@ Past Treatments Page
         * __Noteform.js__ (stateful) - notes table (trigger_point_id, title, content, date-created)
 
 
-
 ## 7. Back-end Structure - Business Objects 
 *  Users (database table)
     * id (auto-generated)
